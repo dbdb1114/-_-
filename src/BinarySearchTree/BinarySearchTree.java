@@ -4,8 +4,9 @@ import java.util.LinkedList;
 import java.util.Optional;
 import org.w3c.dom.Node;
 
-public class BinarySearchTree<E>{
+public class BinarySearchTree<E> {
 
+    int size;
     Node<E> topNode;
     BinarySearch<E> binarySearch;
 
@@ -13,7 +14,13 @@ public class BinarySearchTree<E>{
         this.binarySearch = binarySearch;
     }
 
-    int size;
+    public int size() {
+        return size;
+    }
+
+    public E getTop() {
+        return topNode.data;
+    }
 
     public void add(E data) {
         if (topNode == null) {
