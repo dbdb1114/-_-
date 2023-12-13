@@ -1,0 +1,27 @@
+package BinarySearchTree;
+
+import java.util.LinkedList;
+import java.util.Optional;
+import org.w3c.dom.Node;
+
+public class BinarySearchTree<E>{
+
+    Node<E> topNode;
+    BinarySearch binarySearch;
+
+    public BinarySearchTree(BinarySearch binarySearch) {
+        this.binarySearch = binarySearch;
+    }
+
+    int size;
+
+    public class Node<E> {
+        public Node(E data) {
+            this.data = data;
+        }
+        E data;
+        Node<E> prev;
+        Node<E> next;
+    }
+
+}
