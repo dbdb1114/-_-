@@ -15,10 +15,18 @@ public class BinarySearchTree<E>{
 
     int size;
 
+    public void add(E data) {
+        if (topNode == null) {
+            topNode = new Node<E>(data);
+            return;
+        }
+    }
+
     public class Node<E> {
         public Node(E data) {
             this.data = data;
         }
+
         E data;
         Node<E> prev;
         Node<E> next;
