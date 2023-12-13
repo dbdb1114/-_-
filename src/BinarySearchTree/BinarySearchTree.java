@@ -7,9 +7,9 @@ import org.w3c.dom.Node;
 public class BinarySearchTree<E>{
 
     Node<E> topNode;
-    BinarySearch binarySearch;
+    BinarySearch<E> binarySearch;
 
-    public BinarySearchTree(BinarySearch binarySearch) {
+    public BinarySearchTree(BinarySearch<E> binarySearch) {
         this.binarySearch = binarySearch;
     }
 
