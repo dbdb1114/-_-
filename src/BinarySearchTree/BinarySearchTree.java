@@ -22,12 +22,44 @@ public class BinarySearchTree<E> {
         return topNode.data;
     }
 
-    public void add(E data) {
-        if (topNode == null) {
-            topNode = new Node<E>(data);
-            return;
+
+    public Node<E> findNode(Node<E> node, E data) {
+        if (node == null) {
+            return null;
+        }
+        if (node.data == data) {
+            return node;
+        }
+
+        if (binarySearch.condition(node.data, data)) {
+            return findNode(node.next, data);
+        } else {
+            return findNode(node.prev, data);
         }
     }
+
+
+    public void add(E data) {
+        insertRecursive(topNode, data);
+    }
+
+    /**
+     * 재귀적 작성
+     */
+    private Node<E> insertRecursive(final Node<E> node, E data) {
+        if (node == null) {
+            return new Node(data);
+        }
+
+        if (binarySearch.condition(node.data, data)) {
+            node.prev = insertRecursive(node.prev, data);
+        } else {
+            node.next = insertRecursive(node.next, data);
+        }
+
+        return node;
+    }
+
 
     public class Node<E> {
         public Node(E data) {
