@@ -22,8 +22,11 @@ public class BinarySearchTree<E> {
         return topNode.data;
     }
 
+    public Node<E> findNode(E data) {
+        return findNode(topNode, data);
+    }
 
-    public Node<E> findNode(Node<E> node, E data) {
+    private Node<E> findNode(Node<E> node, E data) {
         if (node == null) {
             return null;
         }
@@ -60,6 +63,29 @@ public class BinarySearchTree<E> {
         return node;
     }
 
+    public boolean isExist(Node<E> node) {
+        if (node != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isExist(E data) {
+        if (findNode(data) == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private boolean isLeafNode(Node<E> node) {
+        if (node.prev == null && node.next == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public class Node<E> {
         public Node(E data) {
