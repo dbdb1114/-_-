@@ -41,6 +41,22 @@ public class BinarySearchTree<E> {
         }
     }
 
+    public void remove(E data) {
+        Node<E> removeNode = findNode(data);
+        /** 존재 여부 확인 */
+        if (!isExist(removeNode)) {
+            return;
+        }
+
+        /** 리프 노드인지 아닌지 확인*/
+        if (isLeafNode(removeNode)) {
+            removeNode = null;
+            return;
+        } else {
+
+        }
+        /** 리프 노드가 아니라면, inorderSuccessor or inOrderPordeSuccessor 둘 중 하나의 방식으로 리프노드와 위치 바꾸기 */
+    }
 
     public void add(E data) {
         insertRecursive(topNode, data);
