@@ -53,19 +53,22 @@ public class BinarySearchTree<E> {
             removeNode = null;
             return;
         } else {
-
         }
         /** 리프 노드가 아니라면, inorderSuccessor or inOrderPordeSuccessor 둘 중 하나의 방식으로 리프노드와 위치 바꾸기 */
     }
 
     public void add(E data) {
-        insertRecursive(topNode, data);
+        if (topNode == null) {
+            topNode = new Node<E>(data);
+        } else {
+            insertRecursive(topNode, data);
+        }
     }
 
     /**
      * 재귀적 작성
      */
-    private Node<E> insertRecursive(final Node<E> node, E data) {
+    private Node<E> insertRecursive(Node<E> node, E data) {
         if (node == null) {
             return new Node(data);
         }
